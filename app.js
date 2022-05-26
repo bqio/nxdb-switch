@@ -16,12 +16,11 @@ function throttle(callee, timeout) {
 }
 
 function onImgErrorSmall(source) {
-  source.src =
-    "http://u.kanobu.ru/editor/images/68/3b613ae5-43cd-46fe-993c-665bac63a485.png";
+  source.src = "nintendo.png";
   return true;
 }
 
-let app = createApp({
+createApp({
   data() {
     return {
       all: [],
@@ -47,6 +46,8 @@ let app = createApp({
     open(magnet) {
       if (window.nx) {
         window.nx.sendMessage(`${magnet}\0`);
+      } else {
+        alert("window.nx is undefined.");
       }
     },
   },
@@ -56,12 +57,10 @@ let app = createApp({
     },
   },
   async mounted() {
-    const response = await fetch(
-      "https://raw.githubusercontent.com/bqio/nxdb/main/nxdb1642450449771.json"
-    );
+    const response = await fetch("nxdb.json");
     const json = await response.json();
     this.all = json.titles;
   },
 }).mount("#app");
 
-window.addEventListener("scroll", throttle(app.checkPosition, 1000));
+//window.addEventListener("scroll", throttle(app.checkPosition, 1000));

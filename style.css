@@ -9,6 +9,11 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+a {
+  display: block;
+  text-decoration: none;
+}
+
 .card-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
