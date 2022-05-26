@@ -20,7 +20,7 @@ function onImgErrorSmall(source) {
   return true;
 }
 
-createApp({
+const app = createApp({
   data() {
     return {
       all: [],
