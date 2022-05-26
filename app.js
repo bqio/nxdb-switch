@@ -63,4 +63,4 @@ createApp({
   },
 }).mount("#app");
 
-//window.addEventListener("scroll", throttle(app.checkPosition, 1000));
+window.addEventListener("scroll", throttle(app.checkPosition, 1000));
