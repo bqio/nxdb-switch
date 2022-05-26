@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>NXDB</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="card-list">
+        <div
+          class="card"
+          v-for="(title, index) of filteredTitles"
+          :tabindex="index"
+          @click="open(title.magnet)"
+        >
+          <div class="card-image">
+            <img
+              :src="resizeImage(title.high_art)"
+              onerror="onImgErrorSmall(this)"
+              alt="card-image"
+            />
+          </div>
+          <div class="card-title">{{title.files[0].title}}</div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
