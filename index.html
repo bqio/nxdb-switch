@@ -18,12 +18,12 @@
         >
           <div class="card-image">
             <img
-              :src="resizeImage(title.high_art)"
+              :src="getImage(title.uid)"
               onerror="onImgErrorSmall(this)"
               alt="card-image"
             />
           </div>
-          <div class="card-title">{{decode(title.files[0].title)}}</div>
+          <div class="card-title">{{decode(title.title)}}</div>
         </div>
       </div>
     </div>

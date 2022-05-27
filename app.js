@@ -29,8 +29,8 @@ const app = createApp({
     };
   },
   methods: {
-    resizeImage(url) {
-      return url.replace("/0/0/", "/485/273/");
+    getImage(uid) {
+      return `https://tinfoil.media/thi/${uid}/485/273/`;
     },
     checkPosition() {
       const height = document.body.offsetHeight;
@@ -56,13 +56,20 @@ const app = createApp({
   },
   computed: {
     filteredTitles() {
-      return this.all.slice(this.offset, this.maxOffset);
+      return this.all
+        .filter((title) => {
+          if (title.uid != -1 && !title.title.includes("[УДАЛЕНО]")) {
+            return true;
+          }
+          return false;
+        })
+        .slice(this.offset, this.maxOffset);
     },
   },
   async mounted() {
-    const response = await fetch("nxdb.json");
+    const response = await fetch("nxdb_data/nxdb.json");
     const json = await response.json();
-    this.all = json.titles;
+    this.all = json;
   },
 }).mount("#app");
 

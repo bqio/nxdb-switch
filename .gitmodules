@@ -1,0 +1,3 @@
+[submodule "nxdb_data"]
+	path = nxdb_data
+	url = https://github.com/bqio/nxdb_data.git
