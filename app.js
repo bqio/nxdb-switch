@@ -44,6 +44,9 @@ let app = createApp({
         this.maxOffset += 15;
       }
     },
+    decode(text) {
+      return he.decode(text);
+    },
     open(magnet) {
       if (window.nx) {
         window.nx.sendMessage(`${magnet}\0`);
