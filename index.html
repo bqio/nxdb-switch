@@ -10,11 +10,11 @@
   <body>
     <div id="app">
       <div class="card-list">
-        <div
-          class="card"
+        <a
           v-for="(title, index) of filteredTitles"
-          :tabindex="index"
+          href="#"
           @click="open(title.magnet)"
+          class="card"
         >
           <div class="card-image">
             <img
